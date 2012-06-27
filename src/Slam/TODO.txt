@@ -1,0 +1,17 @@
+Max player count
+
+ok, so the clients make up the first few clients in the packet list, while yhe bots are the last few.
+
+Every client who receives the packets create these things, but the bots themsleves are indexed at the 
+beginning of SceneGameplay, which should take about 0 milliseconds.
+
+It realluy won't slow the host down by much.
+
+-------------------------
+
+The avatars need to know their own index
+
+The movement and avatar controller functions must all be generic...
+The "AI Avatar" doesn't actually need to decend from the entity class, it only needs to process AI algorithms,
+and pass the output to the network.
+

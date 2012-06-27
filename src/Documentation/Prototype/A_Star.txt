@@ -1,0 +1,26 @@
+/* This algorithm is designed to get the best path, at the cost of time.
+ * 
+ * Mathematical functions
+ * f(x) = g(x) + h(x)	- estimated distance from start to finish
+ * g(x)					- cost from the initial node
+ * h(x)					- the straight line cost from this node to the destination
+ * 
+ * This algorithm could be rewritten in Lua later, for use by the AIs.
+ * This way, certain AIs can have better pathing than others.
+*/
+
+
+Node start(x, y) //the beginning of the path
+Node goal(x, y) //the end of the path
+
+
+set_open //the set of tentative nodes to be evaluated, initially containing the start node
+set_closed //the list of evaluated nodes
+set_from //the map of nodes
+
+
+-------------------------
+
+
+set_open.Add( start )
+

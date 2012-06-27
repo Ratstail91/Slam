@@ -1,0 +1,105 @@
+TODO:
+
+*	Scroll wheel changes the tiles
+*	Tiles have an independant camera
+*	Location markers (spawns, pickups, etc.)
+*	Moving the nodes with the arrow keys
+*	Remove the camera hooks form WaypointTool, to ensure modularity?
+*	Right clicks set back to 0, or two different tiles saved at once
+*	Brush patterns
+
+------------------------------
+
+file structure:
+	[node count]
+	[node list]
+	[index graph]
+end
+
+index graph layout
+-	1	2	3	4	5 <-source
+1					
+2					
+3					
+4					
+5					
+^
+dest
+
+------------------------------
+
+Bake():
+	file stuff...
+	
+	for i = 0 to nodeCount
+		for j = 0 to nodeCount
+			file << solution[i][j]
+	
+	file stuff...
+end
+
+------------------------------	
+From wikipedia: http://en.wikipedia.org/wiki/Dijkstra%27s_algorithm
+------------------------------
+
+ 1  function Dijkstra(Graph, source):
+ 2      for each vertex v in Graph:            // Initializations
+ 3          dist[v] := infinity ;              // Unknown distance function from source to v
+ 4          previous[v] := undefined ;         // Previous node in optimal path from source
+ 5      end for ;
+ 6      dist[source] := 0 ;                    // Distance from source to source
+ 7      Q := the set of all nodes in Graph ;   // All nodes in the graph are unoptimized - thus are in Q
+ 8      while Q is not empty:                  // The main loop
+ 9          u := vertex in Q with smallest distance in dist[] ; //find u in Q with the lowest dist[u]
+10          if dist[u] = infinity:
+11              break ;                        // all remaining vertices are inaccessible from source
+12          end if ;
+13          remove u from Q ;
+14          for each neighbor v of u:          // where v has not yet been removed from Q.
+15              alt := dist[u] + dist_between(u, v) ; //length of the path from source to v through u
+16              if alt < dist[v]:              // Relax (u,v,a)
+17                  dist[v] := alt ;
+18                  previous[v] := u ;
+19                  decrease-key v in Q;       // Reorder v in the Queue
+20              end if ;
+21          end for ;
+22      end while ;
+23      return dist[] ;
+24  end Dijkstra.
+
+------------------------------
+
+might write this in C
+
+solution[nodeCount][nodeCount] //first step from i to j, this is the utlimate goal
+
+dist[nodeCount] //distance from source to v
+prev[nodeCount] //previous node in optimal path to v
+
+
+Proc:
+	all dist = undefined (infinity)
+	all prev = undefined
+	
+	dist[src] = 0 //from source to source
+	
+	while Q is not empty:
+		u = Q[v] with smallest dist[u]
+		
+		if dist[u] == infinity break //escape
+		
+		for each neighbour v:
+			alt = dist[u] + Distance[u, v]
+			
+			if (alt < dist[v]):
+				dist[v] = alt
+				prev[v] = u
+			end if
+		end for
+	end while
+end Proc()
+
+-------------------------
+Complex Callbacks version
+-------------------------
+

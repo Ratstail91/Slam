@@ -1,0 +1,42 @@
+Simple but flexible tile-based map tool.
+
+This version draws the tiles to the screen itself,
+and also has built in editing components.
+These editing components should be disabled when they
+are not needed.
+
+-------------------------
+
+MapTool:
+	+Load			(sFileName, sMapDir, sTilesetDir)
+	+Save			(sFileName, sMapDir)
+	+New			(sTilesetName, x, y, w, h)
+	
+	+DrawMap		(pDest, iCamX, iCamY)
+	+DrawTileset	(pDest, iCamX, iCamY)
+	
+	+GetTileX		()
+	+getTileY		()
+	+GetTileW		()
+	+GetTileH		()
+	+GetTile		(x, y)
+	+GetTileArray	()
+	+GetTileset		()
+	+GetTilesetName	()
+	
+	SetSelection	(iMouseX, iMouseY, iCamX, iCamY)
+	SetTile			(iMouseX, iMouseY, iCamX, iCamY)
+	
+	-GenArray()
+	-ClrArray()
+	
+	-m_iTileX
+	-m_iTileY
+	-m_iTileW
+	-m_iTileH
+	-m_pTileArray
+	-m_pTileset
+	-m_sTilesetName
+	
+	-m_iSelection
+end

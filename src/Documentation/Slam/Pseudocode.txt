@@ -1,0 +1,56 @@
+program flow
+
+start server
+
+start client
+
+client broadcasts
+
+server responds
+
+client displays a list of availalbe servers
+
+for each client:
+	client sends join request
+	
+	server sends join response (server determines the host, and informs the host)
+	
+	Host generates the player object?
+end
+
+host starts the game
+
+for each client:
+	for each action:
+		send message to the server
+	end
+	
+	execute commands from te server
+end
+
+-------------------------
+
+ClientData: //singleton or static?
+	UDPNetwork //setup in Lobby, used in ScenePrime
+	avatarList
+	bulletList
+	pickupList
+	bool host
+	config
+end
+
+-------------------------
+
+UserAvatar:
+	This receives mesages either from the network or the player.
+	This updates accordingly.
+end
+
+AIAvatar:
+	This runs in the host, and updates it's matched instances in each client.
+end
+
+-------------------------
+
+Rotation:
+	

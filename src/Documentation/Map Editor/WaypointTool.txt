@@ -1,0 +1,45 @@
+One half of a waypoint system.
+
+This version draws the waypoints to the screen itself,
+and also has built in editing components.
+This tool should not be included in the game.
+
+-------------------------
+
+WaypointTool:
+	+struct node {int x, int y}
+	+typedef vector<node*> nodeList
+	
+	+struct path {node* a, node* b}
+	+typedef vector<path*> pathList
+	
+	+Constructor
+	
+	+Load			(sFileName, sPathDir)
+	+Save			(sFileName, sPathDir)
+	+Clear			()
+	
+	+Draw			(pDest, iCamX, iCamY)
+	
+	+Bake			(sFileName, sPathDir)
+	
+	+Distance		(x1, y1, x2, y2)
+	+Nearest		(x, y)
+	
+	+GetNodeList	()
+	+GetPathList	()
+	
+	+AddNode		(x, y)
+	+DelNode		(x, y)
+	
+	+AddPath		(node* a, node* b)
+	+DelPath		(node* a, node* b)
+	+TogPath		(node* a, node* b)
+	
+	+SetSelection	(iMouseX, iMouseY)
+	
+	-m_vNodes
+	-m_vPaths
+	
+	-m_pSelection
+end

@@ -1,0 +1,31 @@
+One half of a waypoint system.
+
+This version reads in waypoint data pertaining to a
+specific tile map.
+
+-------------------------
+
+WaypointUtility:
+	Constructor
+	
+	+Load		(sFileName, sPathDir)
+	+Clear		()
+	
+	+Distance	(x1, y1, x2, y2)
+	+Nearest	(x, y)
+	
+	+GetNode	(i)
+	+GetNext	(sx, sy, dx, dy)
+	+GetNextX	(sx, sy, dx, dy)
+	+GetNextY	(sx, sy, dx, dy)
+	
+	+GetNodeList()
+	+GetSolutionTable()
+	
+	-GenTables()
+	-ClrTables()
+	
+	-count
+	-node[count][2]
+	-table[count][count]
+end

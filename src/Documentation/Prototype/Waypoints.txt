@@ -1,0 +1,10 @@
+Logic
+
+forever:
+	if (dist to target < X units): //only cut small corner
+		recalc next node
+		target next node
+	end
+	
+	move towards next node
+end
